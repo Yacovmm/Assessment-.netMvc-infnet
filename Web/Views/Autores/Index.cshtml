@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Domain.Autor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Autores</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sobrenome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNascimento)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AutorId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AutorId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AutorId })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
+<p>
+    @Html.ActionLink("Novo Author", "Create")
+</p>
